@@ -29,6 +29,14 @@ class NewsViewModel(
     }
     var articlesList: LiveData<List<ArticlesItem?>> = _articlesList
 
+    init {
+        loadData()
+    }
+
+    fun loadData(){
+        _forceUpdate.value = true
+    }
+
     private fun handleArticlesResult(articlesListResult: Result<NewsResponse>): MutableLiveData<List<ArticlesItem?>> {
         val result = MutableLiveData<List<ArticlesItem?>>()
         if(articlesListResult is Success){

@@ -42,17 +42,18 @@ class NewsFragment : Fragment() {
         // Inflate the layout for this fragment
         newsFragmentBinding = FragmentNewsBinding.inflate(inflater, container, false).apply {
             newsViewModel = viewModel
+            lifecycleOwner = viewLifecycleOwner
         }
 
         return newsFragmentBinding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         setupArticlesAdapter()
 
-        newsFragmentBinding.lifecycleOwner = this.viewLifecycleOwner
-        
+
+
         viewModel.articlesList.observe(viewLifecycleOwner, Observer {
             Log.i("NewsFragment", "onActivityCreated: ${it}")
         })
