@@ -6,5 +6,5 @@ interface IDataSource {
     suspend fun getUserPassword(email:String): String
 
 
-    suspend fun addUser(userModel: UserModel)
+    suspend fun addUser(userModel: UserModel): Long
 }
