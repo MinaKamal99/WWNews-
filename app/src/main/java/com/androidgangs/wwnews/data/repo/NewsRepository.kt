@@ -27,10 +27,8 @@ class NewsRepository(
         )
 
         if(remoteArticlesListData is Success){
-            Log.i("refreshArticlesListData", "refreshArticlesListData: ${remoteArticlesListData}")
             newsRemoteDataSource.setArticlesListData(remoteArticlesListData)
         } else if (remoteArticlesListData is Error){
-            Log.i("refreshArticlesListData", "refreshArticlesListData: Error")
             throw remoteArticlesListData.exception
         }
     }
