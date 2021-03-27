@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.androidgangs.wwnews.R
 import com.androidgangs.wwnews.ServiceLocator
@@ -48,7 +49,7 @@ class RegistrationFragment : Fragment() {
     }
 
     private fun observation(viewModel: RegistrationViewModel) {
-        viewModel.success.observe(viewLifecycleOwner, Observer { doAction(it) })
+        viewModel.successMutableList.observe(viewLifecycleOwner, Observer { doAction(it) })
         viewModel.errorLiveData.observe(viewLifecycleOwner, Observer { handleError(it) })
     }
 
@@ -60,8 +61,7 @@ class RegistrationFragment : Fragment() {
         Log.i("saeed", "doAction: "+it)
         it?.let { if (it){
             val action =   RegistrationFragmentDirections.actionRegistrationFragmentToLoginFragment()
-            findNavController().navigate(action)
-        } }
+            view?.findNavController()?.navigate(R.id.action_registrationFragment_to_loginFragment)        } }
 
     }
 

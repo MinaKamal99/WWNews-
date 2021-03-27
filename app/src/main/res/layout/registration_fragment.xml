@@ -62,7 +62,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/emailTextView"
-            android:text="@={viewModel.user.email}"
             />
 
         <EditText
@@ -80,7 +79,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/passwordRegisterTextView"
-            android:text="@={viewModel.user.password}"
             />
 
         <TextView

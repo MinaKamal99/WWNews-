@@ -15,36 +15,33 @@ class RegistrationViewModel(val authRepo: AuthRepo) : ViewModel() {
 
    suspend fun registration(email:String,password:String,cPassword:String):Boolean {
        var success = false
-        if (email.isNullOrEmpty()){
-            if (password.equals(cPassword)){
+        if (!email.isNullOrEmpty()){
                 user.email = email
                 user.password = password
                 val savedData = authRepo.savedData(user)
                 if (savedData > 0){
-                    Log.i("saeed", "registration: ")
 
                     success = true
                 }else{
                     errorLiveData.setValue("This User exists")
                 }
 
-            }
+
         }
         return success
     }
     fun register(email:String,password:String,cPassword:String){
         viewModelScope.launch {
-            val successRegister = registration(user.email,user.password,cPassword)
-            Log.i("saeed", "register: "+email+":"+password+":"+cPassword)
+            val successRegister = registration(email,password,cPassword)
             if (successRegister){
-                success.setValue(true)
+                successMutableList.setValue(true)
             } else{
-                success.setValue(false)
+                successMutableList.setValue(false)
             }
         }
     }
     val errorLiveData = MutableLiveData<String>()
     val loadingLiveData = MutableLiveData<Boolean>()
-    val success = MutableLiveData<Boolean>()
+    val successMutableList = MutableLiveData<Boolean>()
 
 }
