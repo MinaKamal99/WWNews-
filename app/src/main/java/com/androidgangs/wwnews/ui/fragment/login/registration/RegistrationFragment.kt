@@ -41,7 +41,6 @@ class RegistrationFragment : Fragment() {
             viewModel.register(binding.editTextRegisterEmail.text.toString(),binding.passwordRegisterTextView.text.toString(),binding.ConfirmPasswordTextView.text.toString())
 
         }
-
         observation(viewModel)
 
     }
@@ -56,7 +55,7 @@ class RegistrationFragment : Fragment() {
     }
 
     private fun doAction(it: Boolean?) {
-        findNavController()..
+        findNavController()
     }
 
 }

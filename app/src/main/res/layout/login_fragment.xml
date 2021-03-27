@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="viewModel"
             type="com.androidgangs.wwnews.ui.fragment.login.LoginViewModel" />
@@ -76,6 +75,7 @@
                 android:layout_margin="@dimen/margin_8"
                 android:ems="10"
                 android:hint="YourPassword"
+                android:textColor="@color/white"
                 android:background="@color/gray_light"
                 android:padding="@dimen/padding_4"
                 android:inputType="textPassword"
@@ -120,7 +120,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="84dp"
-                android:hint="AutomComplete"
+                android:hint="AutoComplete"
                 android:textColorHint="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"

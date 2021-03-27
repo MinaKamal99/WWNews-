@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.androidgangs.wwnews.data.source.local.DataSource
 import com.androidgangs.wwnews.data.source.local.UsersDao
 import com.androidgangs.wwnews.databinding.ActivityMainBinding
+import com.androidgangs.wwnews.ui.fragment.login.LoginFragment
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding : ActivityMainBinding
@@ -12,6 +13,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-//        supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView,LoginFragment()).commit()
+
+
+        supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView,
+            LoginFragment()
+        ).commit()
     }
 }

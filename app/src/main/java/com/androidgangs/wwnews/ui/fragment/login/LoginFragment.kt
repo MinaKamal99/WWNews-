@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.androidgangs.wwnews.R
+import com.androidgangs.wwnews.ServiceLocator
 import com.androidgangs.wwnews.data.repo.AuthRepo
 import com.androidgangs.wwnews.data.source.local.DataSource
 import com.androidgangs.wwnews.data.source.local.UsersDao
@@ -33,21 +34,24 @@ class LoginFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         //UsersDao
-        viewModel =ViewModelProvider(this).get(LoginViewModel::class.java)
-        //AuthRepo(DataSource( ))
-      // ViewModelProvider(this,LoginViewModelFactory()).get(LoginViewModel::class.java)
+        val serviceLocator=ServiceLocator.createRepo(requireActivity().application)
+        val authRepo =AuthRepo(serviceLocator.dataSource)
+        val factory =LoginViewModelFactory(authRepo)
+        viewModel =ViewModelProvider(this,factory).get(LoginViewModel::class.java)
+        binding.viewModel=viewModel
+
         viewModel.errorLveData.observe(viewLifecycleOwner){ error->
+
+            Toast.makeText(context, error, Toast.LENGTH_SHORT).show()
             error?.let{
                 Toast.makeText(context, error, Toast.LENGTH_SHORT).show()
             }
         }
         viewModel.gotoHomeLiveData.observe(viewLifecycleOwner) {
+            Toast.makeText(context, "Yes Good", Toast.LENGTH_SHORT).show()
 
         }
 
-
-
-        // TODO: Use the ViewModel
     }
 
 }
