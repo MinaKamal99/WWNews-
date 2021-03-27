@@ -16,6 +16,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/newsListAdapter"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:articles="@{newsViewModel.articlesList}"/>
     </FrameLayout>
 </layout>

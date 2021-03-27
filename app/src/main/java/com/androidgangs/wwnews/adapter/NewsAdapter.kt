@@ -15,6 +15,8 @@ class NewsAdapter(private val viewModel: NewsViewModel):
 
     class ArticaleItemHolder(var binding: ArticleCardItemBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(viewModel: NewsViewModel, articlesItem: ArticlesItem){
+            binding.newsViewModel = viewModel
+            binding.articleCard = articlesItem
             binding.executePendingBindings()
         }
 
@@ -34,15 +36,15 @@ class NewsAdapter(private val viewModel: NewsViewModel):
     }
 
     override fun onBindViewHolder(holder: ArticaleItemHolder, position: Int) {
-        val dailyItem = getItem(position)
+        val article = getItem(position)
 
-        holder.bind(viewModel, dailyItem)
+        holder.bind(viewModel, article)
     }
 }
 
 class DailyWeatherDiffCallback: DiffUtil.ItemCallback<ArticlesItem>(){
     override fun areItemsTheSame(oldItem: ArticlesItem, newItem: ArticlesItem): Boolean {
-        return true
+        return oldItem.publishedAt == newItem.publishedAt
     }
 
     override fun areContentsTheSame(oldItem: ArticlesItem, newItem: ArticlesItem): Boolean {

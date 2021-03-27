@@ -2,9 +2,15 @@
 <layout>
 
     <data>
+
         <variable
             name="articleCard"
             type="com.androidgangs.wwnews.data.model.ArticlesItem" />
+
+        <variable
+            name="newsViewModel"
+            type="com.androidgangs.wwnews.ui.news.NewsViewModel" />
+
     </data>
 
     <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
