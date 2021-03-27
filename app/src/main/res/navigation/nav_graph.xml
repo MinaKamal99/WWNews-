@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/registrationFragment">
+    app:startDestination="@id/newsFragment">
 
     <fragment
         android:id="@+id/registrationFragment"
@@ -18,4 +18,8 @@
         android:name="com.androidgangs.wwnews.ui.fragment.login.LoginFragment"
         android:label="login_fragment"
         tools:layout="@layout/login_fragment" />
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.androidgangs.wwnews.ui.news.NewsFragment"
+        android:label="NewsFragment" />
 </navigation>

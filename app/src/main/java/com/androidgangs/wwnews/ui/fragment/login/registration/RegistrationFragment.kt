@@ -56,7 +56,6 @@ class RegistrationFragment : Fragment() {
     }
 
     private fun doAction(it: Boolean?) {
-        findNavController()..
     }
 
 }
