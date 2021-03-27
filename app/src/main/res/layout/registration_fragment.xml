@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-
     <data>
         <variable
             name="viewModel"
-            type="com.androidgangs.wwnews.ui.fragment.login.LoginViewModel" />
+            type="com.androidgangs.wwnews.ui.fragment.login.registration.RegistrationViewModel" />
     </data>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -31,8 +30,7 @@
             android:textSize="@dimen/_15ssp"
             app:layout_constraintBottom_toTopOf="@+id/editTextRegisterEmail"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/RegisterTextView"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/RegisterTextView" />
 
         <TextView
             android:id="@+id/passwordRegisterTextView"
@@ -53,7 +51,6 @@
             android:layout_height="wrap_content"
             android:background="@color/gray_light"
             android:ems="10"
-
             android:hint="@string/youremail_com"
             android:inputType="textEmailAddress"
             android:padding="@dimen/padding_4"
@@ -141,5 +138,4 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
-
 </layout>

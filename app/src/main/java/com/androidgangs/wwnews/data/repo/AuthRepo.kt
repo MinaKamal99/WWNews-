@@ -5,11 +5,11 @@ import com.androidgangs.wwnews.data.source.local.DataSource
 
 class AuthRepo(val dataSource: DataSource) : IAuthRepo {
 
-    override suspend fun savedData(userModel: UserModel){
-        dataSource.usersDao.upsert(userModel)
+    override suspend fun savedData(userModel: UserModel): Long {
+        return dataSource.usersDao.upsert(userModel)
     }
 
-    override suspend fun getAuthData(email:String):String{
+    override suspend fun getAuthData(email:String): String {
         return dataSource.usersDao.getUserPassword(email)
     }
 }

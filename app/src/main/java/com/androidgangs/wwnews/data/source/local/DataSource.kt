@@ -9,7 +9,7 @@ class DataSource(val usersDao: UsersDao):IDataSource {
         return usersDao.getUserPassword(email)
     }
 
-    override suspend fun addUser(userModel: UserModel) {
-        usersDao.upsert(userModel)
+    override suspend fun addUser(userModel: UserModel): Long {
+        return usersDao.upsert(userModel)
     }
 }
