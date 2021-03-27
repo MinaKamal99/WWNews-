@@ -60,7 +60,6 @@ class RegistrationFragment : Fragment() {
     private fun doAction(it: Boolean?) {
         Log.i("saeed", "doAction: "+it)
         it?.let { if (it){
-            val action =   RegistrationFragmentDirections.actionRegistrationFragmentToLoginFragment()
             view?.findNavController()?.navigate(R.id.action_registrationFragment_to_loginFragment)        } }
 
     }
