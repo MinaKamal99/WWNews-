@@ -9,20 +9,20 @@ import com.androidgangs.wwnews.data.source.Result.Error
 
 class NewsRemoteDataSource: INewsRemoteDataSource {
 
-    private val observableNewsData = MutableLiveData<Result<NewsResponse>>()
+    private val observableArticlesListData = MutableLiveData<Result<NewsResponse>>()
 
-    override fun setNewsData(data: Result<NewsResponse>){
-        observableNewsData.value = data
+    override fun setArticlesListData(data: Result<NewsResponse>){
+        observableArticlesListData.value = data
     }
 
-    override fun observeNewsData(): LiveData<Result<NewsResponse>> {
-        return observableNewsData
+    override fun observeArticlesListData(): LiveData<Result<NewsResponse>> {
+        return observableArticlesListData
     }
 
-    override suspend fun fetchNewsData(country: String, apiKey: String): Result<NewsResponse> {
+    override suspend fun fetchArticlesListData(country: String, apiKey: String): Result<NewsResponse> {
         var result = NewsApi
             .getNewsClient()
-            .fetchNewsData(
+            .fetchArticlesListData(
                 country,
                 apiKey
             )
