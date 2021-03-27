@@ -13,9 +13,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val username = binding.emialTxt.text
-        val password = binding.passwordTxt.text
-
 
     }
 }

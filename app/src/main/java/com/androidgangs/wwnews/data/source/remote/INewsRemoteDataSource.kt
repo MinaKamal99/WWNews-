@@ -7,11 +7,11 @@ import com.androidgangs.wwnews.data.source.Result
 
 interface INewsRemoteDataSource {
 
-    fun setNewsData(data: Result<NewsResponse>)
+    fun setArticlesListData(data: Result<NewsResponse>)
 
-    fun observeNewsData(): LiveData<Result<NewsResponse>>
+    fun observeArticlesListData(): LiveData<Result<NewsResponse>>
 
-    suspend fun fetchNewsData(
+    suspend fun fetchArticlesListData(
         country: String,
         apiKey: String
     ): Result<NewsResponse>
