@@ -10,7 +10,7 @@ import com.squareup.picasso.Picasso
 @BindingAdapter("android:articles")
 fun aetArticles(listView: RecyclerView, items: List<ArticlesItem>?) {
     items?.let {
-        listView.adapter as NewsAdapter
+        (listView.adapter as NewsAdapter).submitList(items)
     }
 }
 
@@ -20,5 +20,6 @@ fun loadImage(imageView: ImageView, url: String) {
         Picasso
             .get()
             .load(url)
+            .into(imageView)
     }
 }

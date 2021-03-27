@@ -11,7 +11,7 @@ import com.androidgangs.wwnews.ui.news.NewsViewModel
 import java.text.SimpleDateFormat
 
 class NewsAdapter(private val viewModel: NewsViewModel):
-    ListAdapter<ArticlesItem, NewsAdapter.ArticaleItemHolder>(DailyWeatherDiffCallback()) {
+    ListAdapter<ArticlesItem, NewsAdapter.ArticaleItemHolder>(ArticalesDiffCallback()) {
 
     class ArticaleItemHolder(var binding: ArticleCardItemBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(viewModel: NewsViewModel, articlesItem: ArticlesItem){
@@ -42,7 +42,7 @@ class NewsAdapter(private val viewModel: NewsViewModel):
     }
 }
 
-class DailyWeatherDiffCallback: DiffUtil.ItemCallback<ArticlesItem>(){
+class ArticalesDiffCallback: DiffUtil.ItemCallback<ArticlesItem>(){
     override fun areItemsTheSame(oldItem: ArticlesItem, newItem: ArticlesItem): Boolean {
         return oldItem.publishedAt == newItem.publishedAt
     }

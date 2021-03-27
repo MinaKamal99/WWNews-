@@ -40,6 +40,7 @@ class NewsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
         newsFragmentBinding = FragmentNewsBinding.inflate(inflater, container, false).apply {
             newsViewModel = viewModel
             lifecycleOwner = viewLifecycleOwner
@@ -52,10 +53,8 @@ class NewsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupArticlesAdapter()
 
-
-
         viewModel.articlesList.observe(viewLifecycleOwner, Observer {
-            Log.i("NewsFragment", "onActivityCreated: ${it}")
+
         })
     }
 
