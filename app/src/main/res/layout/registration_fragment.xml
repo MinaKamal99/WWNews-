@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragment.login.LoginFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black">
+
+        <TextView
+
+            android:id="@+id/emailTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_8"
+            android:text="@string/email"
+            android:textColor="@color/white"
+            android:layout_marginBottom="@dimen/margin_16"
+            android:textSize="@dimen/_15ssp"
+            app:layout_constraintBottom_toTopOf="@+id/editTextRegisterEmail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/RegisterTextView" />
+
+        <TextView
+            android:id="@+id/passwordRegisterTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_8"
+            android:text="@string/password"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15ssp"
+            android:layout_marginBottom="@dimen/margin_16"
+            app:layout_constraintBottom_toTopOf="@+id/editTextRegisterPassword"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextRegisterEmail" />
+
+        <EditText
+            android:id="@+id/editTextRegisterEmail"
+            android:layout_width="391dp"
+            android:layout_height="wrap_content"
+            android:background="@color/gray_light"
+            android:ems="10"
+            android:hint="@string/youremail_com"
+            android:inputType="textEmailAddress"
+            android:padding="@dimen/padding_4"
+            android:textColor="@color/white"
+            android:textColorHighlight="@color/white"
+            android:textColorHint="@color/white"
+            android:layout_marginBottom="@dimen/margin_16"
+            app:layout_constraintBottom_toTopOf="@+id/passwordRegisterTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/emailTextView" />
+
+        <EditText
+            android:id="@+id/editTextRegisterPassword"
+            android:layout_width="391dp"
+            android:layout_height="wrap_content"
+            android:background="@color/gray_light"
+            android:ems="10"
+            android:hint="YourPassword"
+            android:inputType="textPassword"
+            android:padding="@dimen/padding_4"
+            android:textColorHint="@color/white"
+            android:layout_marginBottom="@dimen/margin_16"
+            app:layout_constraintBottom_toTopOf="@+id/ConfirmPasswordTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordRegisterTextView" />
+
+        <TextView
+            android:id="@+id/RegisterTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/registration"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_30ssp"
+            android:layout_marginBottom="@dimen/margin_64"
+            app:layout_constraintBottom_toTopOf="@+id/emailTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/gray_light"
+            android:text="Register"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextConfirmPassword" />
+
+        <TextView
+            android:id="@+id/ConfirmPasswordTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_8"
+            android:text="Confirm Password"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15ssp"
+            app:layout_constraintBottom_toTopOf="@+id/editTextConfirmPassword"
+            android:layout_marginBottom="@dimen/margin_16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextRegisterPassword" />
+
+        <EditText
+            android:id="@+id/editTextConfirmPassword"
+            android:layout_width="391dp"
+            android:layout_height="wrap_content"
+            android:background="@color/gray_light"
+            android:ems="10"
+            android:hint="Enter YourPassword Again"
+            android:inputType="textPassword"
+            android:padding="@dimen/padding_4"
+            android:textColorHint="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/loginButton"
+            android:layout_marginBottom="@dimen/margin_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ConfirmPasswordTextView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

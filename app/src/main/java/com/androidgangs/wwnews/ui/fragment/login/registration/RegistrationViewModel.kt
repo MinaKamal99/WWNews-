@@ -1,0 +1,34 @@
+package com.androidgangs.wwnews.ui.fragment.login.registration
+
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import com.androidgangs.wwnews.data.model.UserModel
+import com.androidgangs.wwnews.data.repo.AuthRepo
+import com.androidgangs.wwnews.data.repo.IAuthRepo
+import com.androidgangs.wwnews.data.source.local.DataSource
+import com.androidgangs.wwnews.data.source.local.IDataSource
+import com.androidgangs.wwnews.data.source.local.NewsDatabase
+import com.androidgangs.wwnews.data.source.local.UsersDao
+import com.androidgangs.wwnews.util.MyApplication
+import kotlinx.coroutines.*
+
+class RegistrationViewModel(application: MyApplication) : AndroidViewModel(application) {
+    val newsDatabase = NewsDatabase.getLocalData(application).userDao()
+    val IDataSource = DataSource(newsDatabase)
+    val repo:IAuthRepo = AuthRepo(IDataSource)
+
+    fun registration(userModel: UserModel) {
+        var corotiune =
+            CoroutineExceptionHandler { _, exception -> errorLiveData.postValue(exception.message) }
+
+        CoroutineScope(Dispatchers.IO + corotiune).launch {
+            repo.savedData(userModel)
+
+        }
+    }
+    val errorLiveData = MutableLiveData<String>()
+    val loadingLiveData = MutableLiveData<Boolean>()
+    val userLiveData = MutableLiveData<UserModel>()
+
+}
