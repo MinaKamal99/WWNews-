@@ -11,7 +11,6 @@ abstract class NewsDatabase:RoomDatabase() {
 
     abstract fun userDao(): UsersDao
 
-
     companion object {
         // Singleton prevents multiple instances of database opening at the
         // same time.
