@@ -7,6 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.androidgangs.wwnews.R
+import com.androidgangs.wwnews.data.repo.AuthRepo
+import com.androidgangs.wwnews.data.source.local.DataSource
+import com.androidgangs.wwnews.data.source.local.UsersDao
+import com.androidgangs.wwnews.databinding.LoginFragmentBinding
 
 class LoginFragment : Fragment() {
 
@@ -14,18 +18,29 @@ class LoginFragment : Fragment() {
         fun newInstance() = LoginFragment()
     }
 
+    lateinit var binding :LoginFragmentBinding
     private lateinit var viewModel: LoginViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.login_fragment, container, false)
+        binding = LoginFragmentBinding.inflate(layoutInflater)
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+        //UsersDao
+
+        viewModel =ViewModelProvider(this).get(LoginViewModel::class.java)
+
+        //ViewModelProvider(this,LoginViewModelFactory(AuthRepo(DataSource(usersDao =)))).get(LoginViewModel::class.java)
+
+
+
+
+
         // TODO: Use the ViewModel
     }
 
