@@ -9,7 +9,7 @@ class AuthRepo(val dataSource: DataSource) : IAuthRepo {
         dataSource.usersDao.upsert(userModel)
     }
 
-    override suspend fun getAuthData(email:String):String{
+    override suspend fun getAuthData(email:String): String {
         return dataSource.usersDao.getUserPassword(email)
     }
 }
