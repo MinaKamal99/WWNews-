@@ -13,17 +13,15 @@ import com.androidgangs.wwnews.data.source.local.UsersDao
 import com.androidgangs.wwnews.util.MyApplication
 import kotlinx.coroutines.*
 
-class RegistrationViewModel(application: MyApplication) : AndroidViewModel(application) {
-    val newsDatabase = NewsDatabase.getLocalData(application).userDao()
-    val IDataSource = DataSource(newsDatabase)
-    val repo:IAuthRepo = AuthRepo(IDataSource)
+class RegistrationViewModel(val authRepo: AuthRepo) : ViewModel() {
+
 
     fun registration(userModel: UserModel) {
         var corotiune =
             CoroutineExceptionHandler { _, exception -> errorLiveData.postValue(exception.message) }
 
-        CoroutineScope(Dispatchers.IO + corotiune).launch {
-            repo.savedData(userModel)
+            .launch {
+            authRepo.savedData(userModel)
 
         }
     }

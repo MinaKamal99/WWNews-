@@ -10,6 +10,7 @@ import com.androidgangs.wwnews.R
 
 class RegistrationFragment : Fragment() {
 
+
     companion object {
         fun newInstance() = RegistrationFragment()
     }
@@ -26,7 +27,8 @@ class RegistrationFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider.AndroidViewModelFactory(requireActivity().application).create(RegistrationViewModel::class.java)
-        // TODO: Use the ViewModel
+
+
     }
 
 }
