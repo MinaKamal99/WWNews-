@@ -61,9 +61,7 @@
             app:layout_constraintBottom_toTopOf="@+id/passwordRegisterTextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/emailTextView"
-            android:text="@={viewModel.user.email}"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/emailTextView" />
 
         <EditText
             android:id="@+id/editTextRegisterPassword"
@@ -79,9 +77,7 @@
             app:layout_constraintBottom_toTopOf="@+id/ConfirmPasswordTextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/passwordRegisterTextView"
-            android:text="@={viewModel.user.password}"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/passwordRegisterTextView" />
 
         <TextView
             android:id="@+id/RegisterTextView"
@@ -97,19 +93,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed" />
 
-        <Button
-            android:id="@+id/registerButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/gray_light"
-            android:text="Register"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextConfirmPassword"
-            
-            />
+
 
         <TextView
             android:id="@+id/ConfirmPasswordTextView"
@@ -139,6 +123,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ConfirmPasswordTextView" />
+        <Button
+            android:id="@+id/registerButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/gray_light"
+            android:text="Register"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextConfirmPassword"
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
