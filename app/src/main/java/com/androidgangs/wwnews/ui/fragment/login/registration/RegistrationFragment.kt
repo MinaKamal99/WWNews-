@@ -2,6 +2,7 @@ package com.androidgangs.wwnews.ui.fragment.login.registration
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -38,7 +39,7 @@ class RegistrationFragment : Fragment() {
         val registrationViewModelFactory = RegistrationViewModelFactory(repo)
         viewModel = ViewModelProvider(requireActivity(),registrationViewModelFactory).get(RegistrationViewModel::class.java)
         binding.registerButton.setOnClickListener {
-            viewModel.register(binding.editTextRegisterEmail.text.toString(),binding.passwordRegisterTextView.text.toString(),binding.ConfirmPasswordTextView.text.toString())
+            viewModel.register(binding.editTextRegisterEmail.text.toString(),binding.editTextRegisterPassword.text.toString(),binding.editTextConfirmPassword.text.toString())
 
         }
 
@@ -52,11 +53,16 @@ class RegistrationFragment : Fragment() {
     }
 
     private fun handleError(it: String?) {
-
+        Log.i("saeed", "handleError: "+it)
     }
 
     private fun doAction(it: Boolean?) {
-        findNavController()..
+        Log.i("saeed", "doAction: "+it)
+        it?.let { if (it){
+            val action =   RegistrationFragmentDirections.actionRegistrationFragmentToLoginFragment()
+            findNavController().navigate(action)
+        } }
+
     }
 
 }
