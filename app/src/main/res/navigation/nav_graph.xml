@@ -17,5 +17,9 @@
         android:id="@+id/loginFragment"
         android:name="com.androidgangs.wwnews.ui.fragment.login.LoginFragment"
         android:label="login_fragment"
-        tools:layout="@layout/login_fragment" />
+        tools:layout="@layout/login_fragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+    </fragment>
 </navigation>

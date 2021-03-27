@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.findNavController
 import com.androidgangs.wwnews.R
 import com.androidgangs.wwnews.ServiceLocator
 import com.androidgangs.wwnews.data.repo.AuthRepo
@@ -39,7 +40,10 @@ class LoginFragment : Fragment() {
         val factory =LoginViewModelFactory(authRepo)
         viewModel =ViewModelProvider(this,factory).get(LoginViewModel::class.java)
         binding.viewModel=viewModel
+        binding.signup.setOnClickListener {
+            view?.findNavController()?.navigate(R.id.action_loginFragment_to_registrationFragment)
 
+        }
         viewModel.errorLveData.observe(viewLifecycleOwner){ error->
 
             Toast.makeText(context, error, Toast.LENGTH_SHORT).show()

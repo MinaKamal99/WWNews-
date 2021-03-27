@@ -17,17 +17,25 @@ class RegistrationViewModel(val authRepo: AuthRepo) : ViewModel() {
        var success = false
         if (!email.isNullOrEmpty()){
                 user.email = email
+            val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
+            if(email.matches(emailPattern.toRegex())==true){
                 user.password = password
                 val savedData = authRepo.savedData(user)
-                if (savedData > 0){
+                if (savedData > 0) {
 
                     success = true
                 }else{
-                    errorLiveData.setValue("This User exists")
+                    errorLiveData.setValue("user exists")
+                }
+                }else{
+                    errorLiveData.setValue("Please import right email")
                 }
 
 
         }
+       else{
+           errorLiveData.setValue("please don't let area blank")
+       }
         return success
     }
     fun register(email:String,password:String,cPassword:String){
@@ -41,7 +49,6 @@ class RegistrationViewModel(val authRepo: AuthRepo) : ViewModel() {
         }
     }
     val errorLiveData = MutableLiveData<String>()
-    val loadingLiveData = MutableLiveData<Boolean>()
     val successMutableList = MutableLiveData<Boolean>()
 
 }
