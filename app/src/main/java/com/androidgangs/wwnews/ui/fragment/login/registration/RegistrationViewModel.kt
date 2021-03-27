@@ -3,30 +3,44 @@ package com.androidgangs.wwnews.ui.fragment.login.registration
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.androidgangs.wwnews.data.model.UserModel
 import com.androidgangs.wwnews.data.repo.AuthRepo
-import com.androidgangs.wwnews.data.repo.IAuthRepo
-import com.androidgangs.wwnews.data.source.local.DataSource
-import com.androidgangs.wwnews.data.source.local.IDataSource
-import com.androidgangs.wwnews.data.source.local.NewsDatabase
-import com.androidgangs.wwnews.data.source.local.UsersDao
-import com.androidgangs.wwnews.util.MyApplication
 import kotlinx.coroutines.*
 
 class RegistrationViewModel(val authRepo: AuthRepo) : ViewModel() {
 
+    val user:UserModel = UserModel()
 
-    fun registration(userModel: UserModel) {
-        var corotiune =
-            CoroutineExceptionHandler { _, exception -> errorLiveData.postValue(exception.message) }
+   suspend fun registration(email:String,password:String,cPassword:String):Boolean {
+       var success = false
+        if (email.isNullOrEmpty()){
+            if (password==cPassword){
+                user.email = email
+                user.password = password
+                val savedData = authRepo.savedData(user)
+                if (savedData > 0){
+                    success = true
+                }else{
+                    errorLiveData.setValue("This User exists")
+                }
 
-            .launch {
-            authRepo.savedData(userModel)
-
+            }
+        }
+        return success
+    }
+    fun register(email:String,password:String,cPassword:String){
+        viewModelScope.launch {
+            val successRegister = registration(user.email,user.password,cPassword)
+            if (successRegister){
+                success.setValue(true)
+            } else{
+                success.setValue(false)
+            }
         }
     }
     val errorLiveData = MutableLiveData<String>()
     val loadingLiveData = MutableLiveData<Boolean>()
-    val userLiveData = MutableLiveData<UserModel>()
+    val success = MutableLiveData<Boolean>()
 
 }
