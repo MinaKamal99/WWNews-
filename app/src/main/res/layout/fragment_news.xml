@@ -3,7 +3,7 @@
 
     <data>
         <variable
-            name="newsRecyclerView"
+            name="newsViewModel"
             type="com.androidgangs.wwnews.ui.news.NewsViewModel" />
     </data>
 
@@ -14,8 +14,9 @@
         tools:context=".ui.news.NewsFragment">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/news_recycler_view"
+            android:id="@+id/newsListAdapter"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:articles="@{newsViewModel.articlesList}"/>
     </FrameLayout>
 </layout>
