@@ -11,7 +11,6 @@ import com.androidgangs.wwnews.data.model.UserModel
 interface UsersDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsert(userModel: UserModel)
-
     @Query("select password from users where email = :email")
      suspend fun getUserPassword(email:String):String
 }
