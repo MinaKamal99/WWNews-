@@ -20,8 +20,7 @@ class LoginViewModel(var authRepo: AuthRepo) : ViewModel() {
 
     private  val TAG = "LoginViewModel"
 
-    fun onClickSave() {
-
+    fun onClickLogin() {
         val resultValidation = validate(user?.email, user?.password)
         if (resultValidation) {
             viewModelScope.launch {
@@ -34,10 +33,8 @@ class LoginViewModel(var authRepo: AuthRepo) : ViewModel() {
                     errorLveData.value = "Error Email"
                 }
             }
-
         }
     }
-
     fun validate(email: String?, password: String?): Boolean {
         if (email.isNullOrEmpty() || password.isNullOrEmpty()) {
             errorLveData.value = "Error invalid username or password"
@@ -47,9 +44,7 @@ class LoginViewModel(var authRepo: AuthRepo) : ViewModel() {
             return false
         } else {
             return true
-
         }
-
     }
 
     override fun onCleared() {
